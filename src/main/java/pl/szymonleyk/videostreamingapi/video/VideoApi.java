@@ -16,7 +16,7 @@ public class VideoApi {
     private final VideoService videoService;
 
     @PostMapping
-    public Video publish(@RequestBody String content){
-        return videoService.publish(content);
+    public UUID publish(@RequestBody VideoDto videoDto){
+        return videoService.add(videoDto);
     }
 }

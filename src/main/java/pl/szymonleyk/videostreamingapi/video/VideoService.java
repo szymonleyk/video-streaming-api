@@ -10,7 +10,12 @@ import java.util.UUID;
 public class VideoService {
 
     private final VideoRepository videoRepository;
-    public Video publish(String content) {
-        return videoRepository.save(new Video(UUID.randomUUID(), content));
+
+    public UUID add(VideoDto videoDto) {
+        return videoRepository.save(videoDto.asVideo()).getId();
+    }
+
+    public Video findById(UUID id) {
+        return videoRepository.findById(id).get();
     }
 }
