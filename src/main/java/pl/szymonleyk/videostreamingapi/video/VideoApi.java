@@ -19,4 +19,9 @@ public class VideoApi {
     public void delete(@PathVariable Long id) {
         videoService.delist(id);
     }
+
+    @GetMapping("/{id}/load")
+    public VideoDto load(@PathVariable Long id) {
+        return videoService.load(id);
+    }
 }
