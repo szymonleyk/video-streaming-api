@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.UUID;
-
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/videos")
@@ -16,7 +14,7 @@ public class VideoApi {
     private final VideoService videoService;
 
     @PostMapping
-    public UUID publish(@RequestBody VideoDto videoDto){
+    public Long publish(@RequestBody VideoDto videoDto){
         return videoService.add(videoDto);
     }
 }

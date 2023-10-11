@@ -1,16 +1,11 @@
 package pl.szymonleyk.videostreamingapi.metadata;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pl.szymonleyk.videostreamingapi.video.Video;
-
-import java.util.UUID;
 
 @Entity
 @Getter
@@ -19,7 +14,8 @@ import java.util.UUID;
 @AllArgsConstructor
 public class Metadata {
     @Id
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String title;
     private String synopsis;
     private String director;
