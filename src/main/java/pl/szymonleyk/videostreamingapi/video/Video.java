@@ -17,6 +17,7 @@ public class Video {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String content;
+    private boolean active;
 
     @OneToOne(mappedBy = "video", cascade = CascadeType.ALL)
     private Metadata metadata;

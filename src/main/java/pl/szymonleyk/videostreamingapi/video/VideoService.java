@@ -16,4 +16,10 @@ public class VideoService {
     public Video findById(Long id) {
         return videoRepository.findById(id).get();
     }
+
+    public void delist(Long id) {
+        Video video = findById(id);
+        video.setActive(false);
+        videoRepository.save(video);
+    }
 }
