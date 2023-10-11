@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.szymonleyk.videostreamingapi.video.VideoService;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class MetadataService {
@@ -16,4 +18,7 @@ public class MetadataService {
         metadataRepository.save(metadata);
     }
 
+    public List<MetadataDto> findAllActiveMetadata() {
+        return metadataRepository.findAllByVideo_Active(true).stream().map(MetadataDto::from).toList();
+    }
 }
