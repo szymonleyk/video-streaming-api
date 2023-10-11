@@ -6,6 +6,6 @@ public record VideoDto(Long id, String content) {
     }
 
     public Video asVideo() {
-        return new Video(id, content, null);
+        return new Video(id, content, true, null);
     }
 }

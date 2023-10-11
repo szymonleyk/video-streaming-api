@@ -1,10 +1,7 @@
 package pl.szymonleyk.videostreamingapi.video;
 
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
@@ -14,7 +11,12 @@ public class VideoApi {
     private final VideoService videoService;
 
     @PostMapping
-    public Long publish(@RequestBody VideoDto videoDto){
+    public Long publish(@RequestBody VideoDto videoDto) {
         return videoService.add(videoDto);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        videoService.delist(id);
     }
 }
