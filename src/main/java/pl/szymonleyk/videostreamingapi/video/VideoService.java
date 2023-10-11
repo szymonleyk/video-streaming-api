@@ -27,4 +27,8 @@ public class VideoService {
     public VideoDto load(Long id) {
         return VideoDto.from(videoRepository.findById(id).get());
     }
+
+    public String play(Long id) {
+        return VideoDto.from(videoRepository.findById(id).get()).content();
+    }
 }

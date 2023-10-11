@@ -24,4 +24,9 @@ public class VideoApi {
     public VideoDto load(@PathVariable Long id) {
         return videoService.load(id);
     }
+
+    @GetMapping("/{id}/play")
+    public String play(@PathVariable Long id) {
+        return videoService.play(id);
+    }
 }
