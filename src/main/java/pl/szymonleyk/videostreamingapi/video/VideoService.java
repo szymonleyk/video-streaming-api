@@ -2,6 +2,7 @@ package pl.szymonleyk.videostreamingapi.video;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import pl.szymonleyk.videostreamingapi.metadata.MetadataDto;
 
 @Service
 @RequiredArgsConstructor
@@ -21,5 +22,9 @@ public class VideoService {
         Video video = findById(id);
         video.setActive(false);
         videoRepository.save(video);
+    }
+
+    public VideoDto load(Long id) {
+        return VideoDto.from(videoRepository.findById(id).get());
     }
 }
